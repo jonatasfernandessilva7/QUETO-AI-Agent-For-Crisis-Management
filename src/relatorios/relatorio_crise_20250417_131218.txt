@@ -1,0 +1,36 @@
+**Relatório de Crise:Evento Audio**
+
+**Resumo do Incidente**
+
+Um evento auditivo foi detectado pelo sensor audio, indicando uma possível explosão. O arquivo audio correspondente foi enviado para análise.
+
+**Detalhes do Incidente**
+
+* **Evento**: evento_audio
+* **Origem**: sensor_audio
+* **Detalhes**:
+ + padrão_detectado: Explosão detectada
+ + arquivo_audio: som01.wav
+
+**Resposta Reativa**
+
+O evento foi recebido e atualmente está sendo monitorado. A análise do arquivo audio está em andamento.
+
+**Plano de Ação**
+
+* **Monitorar situação**: Continuar a monitoring da situação para garantir que o incidente não seja um acidente isolado.
+* **Análise adicional**: Realizar uma análise mais detalhada do arquivo audio para determinar a causa exata da explosão.
+
+**Prioridade**
+
+A prioridade do incidente é desconhecida. É necessário realizar uma avaliação mais detalhada para determinar a gravidade do incidente e estabelecer uma prioridade adequada.
+
+**Recomendações**
+
+* Realizar uma comunicação clara e transparente com as partes interessadas sobre o incidente.
+* Estabelecer um plano de resposta para eventuais consequências do incidente.
+* Realizar uma revisão da segurança e das medidas preventivas para evitar que eventos semelhantes ocorram no futuro.
+
+**Fim do Relatório**
+
+Espero que este relatório forneça as informações necessárias para gerenciar o incidente de forma eficaz. Se tiver alguma dúvida ou precisar de mais informações, por favor não hesite em entrar em contato.

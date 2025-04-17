@@ -1,0 +1,52 @@
+**Relatório de Crise: Ataque Cibernetico**
+
+**Evento:** Ataque Cibernetico (DDoS)
+**Origem:** Externa
+**Detalhes:**
+
+| **Sistema/Afeto** | **Erro** | **Impacto** |
+| --- | --- | --- |
+| Servidor Auth | Não consigo acessar o servidor. | Usuários não conseguem fazer login. |
+
+**Resposta Reativa:**
+
+*   "Ataque detectado! Acionando time de segurança e bloqueando tráfego suspeito."
+
+**Plano de Ação:**
+
+1.  **Isolar sistemas afetados**: Isolar os sistemas afetados para evitar a propagação do ataque e proteger os dados sensíveis.
+2.  **Analisar logs**: Analisar os logs de sistema para identificar o ponto de entrada do ataque e entender melhor a natureza do assalto cibernético.
+3.  **Comunicar stakeholders**: Comunicar com os stakeholders envolvidos, incluindo os usuários afetados, sobre o incidente e as medidas sendo tomadas para minimizar o impacto.
+
+**Prioridade:** Crítico
+
+**Ações Immediatas:**
+
+1.  **Bloqueio de tráfego**: Bloquear imediatamente todos os tráfegos suspeitos para evitar que o ataque se proporcione.
+2.  **Alerta a stakeholders**: Notificar todos os stakeholders sobre o incidente e as medidas sendo tomadas para minimizar o impacto.
+
+**Plano de Recuperação:**
+
+1.  **Reabertura do sistema**: Reabrir o sistema uma vez que o ataque tenha sido neutralizado.
+2.  **Verificação de segurança**: Realizar uma verificação de segurança aprofundada para identificar vulnerabilidades e implementar medidas preventivas.
+
+**Monitoramento:**
+
+*   Monitorar atentamente os sistemas afetados para garantir que o ataque não tenha sido bem-sucedido.
+*   Acompanhar as comunicações com os stakeholders para garantir que todas as informações estiverem alinhadas e claras.
+
+**Resumo:**
+O relatório de crise apresenta um ataque cibernetico DDoS contra o servidor auth. As medidas a serem tomadas incluem isolamento dos sistemas afetados, análise dos logs, comunicação com os stakeholders, bloqueio de tráfego suspeito e verificação de segurança. A prioridade é crítico para minimizar o impacto nos usuários e garantir a continuidade das operações.
+
+**Ações Consecutivas:**
+
+1.  **Análise detalhada**: Realizar uma análise detalhada do incidente, incluindo as causas do ataque e as vulnerabilidades identificadas.
+2.  **Implementação de medidas preventivas**: Implementar medidas preventivas para evitar futuros ataques cibernéticos.
+
+**Avaliação:**
+
+1.  **Evaluando a eficácia da resposta reativa**: Avaliar se a resposta reativa foi eficaz em minimizar o impacto do ataque.
+2.  **Analysing as causas do ataque:** Investigar as causas do ataque para identificar oportunidades de melhoria no plano de segurança.
+
+**Conclusão:**
+O relatório apresentado destaca a necessidade imediata de medidas de segurança para proteger os sistemas da organização contra ataques cibernéticos. A prioridade é crítica para minimizar o impacto nos usuários e garantir a continuidade das operações.
