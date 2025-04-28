@@ -1,0 +1,33 @@
+**Relatório de Crise**
+
+**Evento:** evento_audio
+**Origem:** sensor_audio
+**Detalhes:**
+
+| Parâmetro | Valor |
+| --- | --- |
+| padrão detectado | Ambiente calmo ou desconhecido |
+| arquivo audio | Explosion.mp3 |
+| erro | Error opening <tempfile.SpooledTemporaryFile object at 0x000001A5E7EC3370>: Format not recognised. |
+
+**Resposta Reactiva:**
+O evento foi recebido e agora estamos aguardando análise para entender melhor a situação.
+
+**Plano de Ação:**
+
+1. **Monitorar situação**: Continuaremos monitorando a situação para garantir que não haja nenhum desenvolvimento adverso.
+2. (Outras ações): Nenhuma outra ação foi determinada no momento.
+
+**Prioridade:**
+A prioridade do evento é desconhecida, pois não há informações suficientes para avaliar a gravidade da situação.
+
+**Conclusão:**
+O relatório de crise fornece as informações básicas sobre o evento que ocorreu. É importante monitorar a situação e aguardar análise adicional para entender melhor a natureza do padrão detectado e tomar medidas adequadas para garantir a segurança e a continuidade das operações.
+
+**Recomendações:**
+
+* Verificar as informações sobre o arquivo audio e os possíveis motivos do erro de abertura.
+* Avaliar se a prioridade do evento deve ser alterada com base nas informações disponíveis.
+* Acompanhar as monitoragens para garantir que não haja nenhum desenvolvimento adverso.
+
+**Fim do Relatório**

@@ -1,0 +1,40 @@
+**Relatório de Crise - Evento Audio**
+
+**Evento:** evento_audio
+**Origem:** sensor_audio
+**Detalhes:**
+
+| Parâmetro | Valor |
+| --- | --- |
+| padrão detectado | Ambiente calmo ou desconhecido |
+| arquivo audio | som01.wav |
+| erro | Error opening <tempfile.SpooledTemporaryFile object at 0x000002C2567372E0>: Format not recognised. |
+
+**Resposta Reactiva:**
+- Evento recebido.
+
+**Aguardando análise...**
+
+**Plano de Ação:**
+1. **Monitorar situação:** Continuar monitorando o evento e aguardar novas informações para tomar decisões.
+
+**Prioridade:**
+Desconhecida
+
+**Observações:**
+
+- O erro relatado sugere uma falha no processamento do arquivo audio.
+- É importante investigar a causa raiz do erro e garantir que o sistema possa lidar com diferentes formatos de áudio.
+- A resposta reativa é temporária, pois aguardamos mais informações para tomar decisões.
+
+**Recomendações:**
+1. Verificar se há atualizações de software ou firmware disponíveis para resolver problemas relacionados ao arquivo audio.
+2. Verificar a qualidade do arquivo audio e se ele está compatível com o sistema.
+3. Monitorar as condições ambientais para garantir que não haja interferências em operações sensoriais.
+
+**Frequência de Revisão:** 1 hora
+
+**Responsável:** [nome do responsável]
+
+**Assinatura:**
+[ nome e cargo ]

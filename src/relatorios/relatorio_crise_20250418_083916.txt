@@ -1,0 +1,25 @@
+**Relatório de Crise: Evento "evento_audio"**
+
+**Detalhes do Incidente:**
+
+*   **Evento:** evento_audio
+*   **Origem:** sensor_audio
+*   **Detalhes:**
+    *   **Padrão detectado:** Explosão detectada
+    *   **Arquivo audio:** som01.wav
+    *   **Erro:** Error opening <tempfile.SpooledTemporaryFile object at 0x000001B7441432B0>: Format not recognised.
+
+**Resposta Reativa:**
+
+*   **Evento recebido:** O evento foi recebido e está sendo processado.
+*   **Aguardando análise:** A resposta reativa é de aguardar a análise para entender melhor o padrão detectado e tomar medidas necessárias.
+
+**Plano de Ação:**
+
+1.  **Monitorar situação**: Monitorar a situação e verificar se há mais informações disponíveis sobre o padrão detectado.
+2.  **Verificar arquivo:** Verificar se existe algum problema com o arquivo audio "som01.wav".
+3.  **Procurar solução:** Procurar uma solução para o erro formatado e garantir que o arquivo possa ser lido corretamente.
+
+**Prioridade:**
+
+*   A prioridade do incidente é desconhecida, portanto, a efetivação da resposta requer avaliação adicional.

@@ -1,0 +1,28 @@
+**Relatório de Crise**
+
+**Evento:** evento_audio
+**Origem:** sensor_audio
+**Detalhes:**
+
+*   **Padrão detectado:** Ambiente calmo ou desconhecido
+*   **Arquivo audio:** Explosion.mp3
+*   **Erro:** Error opening <_io.BytesIO object at 0x000002258E441800>: Format not recognised.
+
+**Resposta Reactiva:**
+Evento recebido. Aguardando análise.
+
+**Plano de Ação:**
+
+1.  Monitorar situação
+2.  Avaliar a gravidade do padrão detectado e tomar medidas necessárias para mitigar o impacto.
+3.  Verificar se o arquivo audio é corrupto ou não é do tipo esperado.
+
+**Prioridade:** Desconhecido
+
+A prioridade desse evento de crise é desconhecida, porém, a gravidade do padrão detectado e a necessidade de monitorar a situação para garantir que o impacto seja minimizado, justificam uma resposta rápida e cuidadosa.
+
+**Recomendações:**
+
+*   Verificar se há alguma forma de recuperar o arquivo audio.
+*   Avaliar se o padrão detectado é um evento normal ou anormal.
+*   Notificar as autoridades competentes caso seja necessário intervir mais a fundo.

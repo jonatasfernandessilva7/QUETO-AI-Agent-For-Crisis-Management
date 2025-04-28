@@ -1,0 +1,24 @@
+**Relatório de Crise - Ataque Cibernetico**
+
+**Evento:** Ataque Cibernetico
+**Origem:** Externa, DDoS (Distributed Denial of Service)
+**Detalhes:**
+- Sistema afetado: Servidor Autêntico
+- Erro ocorrido: Usuários não conseguem fazer login.
+- Impacto: Acesso aos sistemas e serviços é limitado.
+
+**Resposta Reativa:**
+
+*   **Ataque detectado!**: O ataque foi detectado e a equipe de segurança foi acionada imediatamente.
+*   **Acionamento do Time de Segurança:** Uma equipe especializada em segurança foi formada para lidar com o incidente.
+*   **Bloqueio de tráfego suspeito:** O tráfego suspeito foi bloqueado para evitar que o ataque continue causando danos.
+
+**Plano de Ação:**
+
+1.  **Isolar sistemas afetados**: Os sistemas afetados pelo ataque serão isolados do reste da rede para evitar a propagação do malware.
+2.  **Analisar logs**: A equipe de segurança será responsável por analisar os logs dos sistemas afetados para entender melhor o tipo e a extensão do ataque.
+3.  **Comunicar stakeholders**: Comunicações seriam feitas com os stakeholders relevantes, como gerentes e responsáveis pelo sistema, para informar sobre a situação e planejar uma resposta eficaz.
+
+**Prioridade:**
+
+A prioridade da resposta ao ataque é CRÍTICA, pois afeta diretamente a acessibilidade dos usuários e a estabilidade do sistema.

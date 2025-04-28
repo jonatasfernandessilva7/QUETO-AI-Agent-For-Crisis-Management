@@ -15,10 +15,11 @@ from memoria import (
     clusterizar_eventos,
     obter_historico_eventos
 )
+from microfone import gravar_audio_microfone, reconhecer_fala
 from resposta import resposta_reativa, planejamento_deliberativo
 from aprendizado import classificar_evento
 from relatorios import gerar_relatorio_llama_local, salvar_relatorio
-from email_utils import enviar_email_relatorio
+from email_utils import enviar_email_com_anexos, enviar_email_relatorio
 
 load_dotenv()
 
@@ -36,7 +37,7 @@ async def receber_evento(evento: Evento):
     similaridade_msg, evento_similar = comparar_com_eventos_passados(evento)
 
     relatorio = gerar_relatorio_llama_local(evento, resposta, plano, prioridade)
-    arquivo = salvar_relatorio(relatorio, timestamp)
+    arquivo = salvar_relatorio(relatorio, timestamp, prioridade)
     enviar_email_relatorio(arquivo, os.getenv("EMAIL_DESTINO"))
 
     return {
@@ -50,33 +51,38 @@ async def receber_evento(evento: Evento):
     }
 
 @app.post("/audio_evento")
-async def receber_audio(file: UploadFile = File(...)):
+async def receber_audio():
     timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-    with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as temp:
-        shutil.copyfileobj(file.file, temp)
-        caminho_temp = temp.name
 
+    caminho_temp = gravar_audio_microfone(duracao=10)
+    
     try:
         rate, signal = wavfile.read(caminho_temp)
         if signal.ndim > 1:
             signal = signal.mean(axis=1)
 
         # Análise de Fourier
-        analise_fourier = analisar_som_fourier(file)
+        analise_fourier = analisar_som_fourier(caminho_temp)
 
         signal_filtrado = filtro_passa_baixa(signal, rate)
         espectrograma_path = salvar_espectrograma(signal_filtrado, rate, timestamp)
         padrao = detectar_padroes(signal_filtrado, rate)
 
-        detalhes_evento = {"padrao_detectado": padrao, "arquivo_audio": file.filename}
-        # Adicionando os resultados da análise de Fourier aos detalhes do evento
+        detalhes_evento = {"padrao_detectado": padrao, "arquivo_audio": caminho_temp}
         detalhes_evento.update(analise_fourier)
 
+        texto_falado = reconhecer_fala(caminho_temp)
+        detalhes_evento["texto_falado"] = texto_falado
+
+
+        tipo_evento_detectado = classificar_evento(detalhes_evento)
+
         evento = Evento(
-            tipo="evento_audio",
-            origem="sensor_audio",
+            tipo=tipo_evento_detectado,
+            origem="microfone_local",
             detalhes=detalhes_evento
         )
+
 
         adicionar_evento_historico({"evento": evento.dict(), "timestamp": timestamp})
 
@@ -86,8 +92,8 @@ async def receber_audio(file: UploadFile = File(...)):
         similaridade_msg, evento_similar = comparar_com_eventos_passados(evento)
 
         relatorio = gerar_relatorio_llama_local(evento, resposta, plano, prioridade)
-        arquivo_txt = salvar_relatorio(relatorio, timestamp)
-        enviar_email_relatorio(arquivo_txt, os.getenv("EMAIL_DESTINO"))
+        arquivo = salvar_relatorio(relatorio, timestamp, prioridade)
+        enviar_email_com_anexos([arquivo, caminho_temp], os.getenv("EMAIL_DESTINO"))
 
         retorno = {
             "padrao_detectado": padrao,
@@ -99,11 +105,13 @@ async def receber_audio(file: UploadFile = File(...)):
             "evento_similar": evento_similar,
             "espectrograma": espectrograma_path
         }
-        # Adicionando os resultados da análise de Fourier ao retorno
         retorno.update(analise_fourier)
         return retorno
+    except(TypeError):
+        print(TypeError)
     finally:
         os.remove(caminho_temp)
+
 
 @app.get("/eventos-clusterizados")
 async def eventos_clusterizados(k: int = 3):
