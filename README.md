@@ -1,6 +1,6 @@
 # Queto – Agente Autônomo de Gestão de Crises
 
-**Queto** é um agente autônomo inteligente projetado para detectar, analisar, responder e aprender com situações de crise. Com base em eventos de diferentes naturezas (como falhas de sistema, ataques cibernéticos ou eventos sonoros anômalos), o agente executa protocolos de resposta, planejamento, aprendizado e geração de relatórios com base em LLMs (LLaMA 3).
+**Queto** é um agente autônomo inteligente projetado para detectar, analisar, responder e aprender com situações de crise. Com base em eventos de diferentes naturezas (como falhas de sistema, ataques cibernéticos ou eventos sonoros anômalos), o agente executa protocolos de resposta, planejamento, aprendizado e geração de relatórios com base em LLMs (LLaMA 3.2).
 
 ---
 
