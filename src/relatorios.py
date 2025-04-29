@@ -9,15 +9,24 @@ from reportlab.lib.units import cm
 from reportlab.lib import colors
 from modelos import Evento
 
+
 def gerar_relatorio_llama_local(evento: Evento, resposta: str, plano: list, prioridade: str):
     prompt = f"""
-    Gere um relatório de crise:
-    Evento: {evento.tipo}
-    Origem: {evento.origem}
-    Detalhes: {evento.detalhes}
-    Resposta Reativa: {resposta}
-    Plano de Ação: {plano}
-    Prioridade: {prioridade}
+    Você é um especialista em riscos e crises corporativas. Gere um relatório em português. O relatório deve conter as seguintes informações:
+    
+    {{
+        "evento": "{evento.tipo}",
+        "origem": "{evento.origem}",
+        "detalhes": "{evento.detalhes}",
+        "resposta_reativa": "{resposta}",
+        "plano_acao": {json.dumps(plano, ensure_ascii=False)},
+        "prioridade": "{prioridade}"
+    }}
+
+    Este relatório não deve ter comentários. Este relatório deve envolver descrever possíveis crises que podem ocorrer a partir do evento detectado.
+    Faça o plano de ação baseado na ISO 22361 e ISO 31000.
+    O nível de prioridade deve ser baseado na ISO 22324 por exemplo (Danger, Caution ou safe).
+    Faça um relatório com precisão, com calma. Lembre-se, você é um especialista.
     """
 
     try:
@@ -70,14 +79,13 @@ def salvar_relatorio(relatorio: str, timestamp: str, prioridade="Desconhecido"):
     story = []
 
     # Título principal
-    story.append(Paragraph("📘 <b>Relatório de Crise</b>", styles["Title"]))
+    story.append(Paragraph("📘 <b>Relatório</b>", styles["Title"]))
     story.append(Spacer(1, 12))
 
     # Destaque visual da prioridade com cor ISO 22324
     story.append(Paragraph(f"<b>Prioridade:</b> {prioridade}", estilo_prioridade))
     story.append(Spacer(1, 12))
 
-    # Conteúdo do relatório
     for linha in relatorio.strip().split("\n"):
         if linha.strip():
             story.append(Paragraph(linha.strip(), styles["Normal"]))

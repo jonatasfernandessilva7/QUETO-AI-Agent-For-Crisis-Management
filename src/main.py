@@ -1,4 +1,4 @@
-from fastapi import FastAPI, UploadFile, File, Request
+from fastapi import FastAPI
 import datetime
 import tempfile
 import shutil
@@ -28,7 +28,7 @@ app = FastAPI(title="Agente Queto - Gestão de Crises")
 @app.post("/evento")
 async def receber_evento(evento: Evento):
     timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-    adicionar_evento_historico({"evento": evento.dict(), "timestamp": timestamp})
+    adicionar_evento_historico({"evento": evento.model_dump(), "timestamp": timestamp})
 
     resposta = resposta_reativa(evento)
     plano = planejamento_deliberativo(evento)
@@ -38,7 +38,7 @@ async def receber_evento(evento: Evento):
 
     relatorio = gerar_relatorio_llama_local(evento, resposta, plano, prioridade)
     arquivo = salvar_relatorio(relatorio, timestamp, prioridade)
-    enviar_email_relatorio(arquivo, os.getenv("EMAIL_DESTINO"))
+    #enviar_email_relatorio(arquivo, os.getenv("EMAIL_DESTINO"))
 
     return {
         "resposta_reativa": resposta,
@@ -84,7 +84,7 @@ async def receber_audio():
         )
 
 
-        adicionar_evento_historico({"evento": evento.dict(), "timestamp": timestamp})
+        adicionar_evento_historico({"evento": evento.model_dump(), "timestamp": timestamp})
 
         resposta = resposta_reativa(evento)
         plano = planejamento_deliberativo(evento)
@@ -93,7 +93,7 @@ async def receber_audio():
 
         relatorio = gerar_relatorio_llama_local(evento, resposta, plano, prioridade)
         arquivo = salvar_relatorio(relatorio, timestamp, prioridade)
-        enviar_email_com_anexos([arquivo, caminho_temp], os.getenv("EMAIL_DESTINO"))
+        #enviar_email_com_anexos([arquivo, caminho_temp], os.getenv("EMAIL_DESTINO"))
 
         retorno = {
             "padrao_detectado": padrao,

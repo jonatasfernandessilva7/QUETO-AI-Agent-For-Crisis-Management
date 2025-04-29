@@ -1,6 +1,5 @@
 from modelos import Evento
-import requests
-import os
+from resposta import gerar_resposta_llama_local
 
 modelo_aprendizado = {
     "falha_sistema": "Prioridade Alta",
@@ -8,31 +7,10 @@ modelo_aprendizado = {
     "Explosão": "Crítico"
 }
 
-def gerar_resposta_llama_local(prompt: str) -> str:
-    url = "http://localhost:11434/api/generate"
-    modelo = os.getenv("llama3.2:latest", "llama3.2") 
-
-    payload = {
-        "model": modelo,
-        "prompt": prompt,
-        "stream": False  # False para receber a resposta toda de uma vez
-    }
-
-    try:
-        response = requests.post(url, json=payload)
-        response.raise_for_status()
-        resposta = response.json()["response"]
-        return resposta.strip()
-    except Exception as e:
-        print(f"Erro ao gerar resposta do modelo: {e}")
-        return "Erro ao gerar resposta com a IA."
-
-
-
 def classificar_evento(detalhes_evento):
     prompt = f"""
-    Você é uma IA especializada em identificar tipos de eventos a partir de dados de áudio.  
-    Com base nos seguintes detalhes, classifique o tipo do evento em uma palavra (ex: Explosão, Sirene, Tiro, Grito, Alarme, etc.).
+    Você é uma IA especializada riscos e crises corporativas. Você deve identificar eventos a partir de entradas em áudio, texto, imagens, entre outros.  
+    Com base nos seguintes detalhes, classifique o tipo do evento em uma palavra (ex: Explosão, Sirene, Tiro, Grito, Alarme, Ataque Cibernético etc.).
 
     Detalhes do evento: {detalhes_evento}
 
