@@ -3,11 +3,16 @@ import datetime
 import tempfile
 import shutil
 import os
+
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
 from dotenv import load_dotenv
 from scipy.io import wavfile
 
 from modelos import Evento
-from analise_som import analisar_som_fourier, filtro_passa_baixa, detectar_padroes, salvar_espectrograma
+from src.services.service_analise_som import analisar_som_fourier, filtro_passa_baixa, detectar_padroes, salvar_espectrograma
 from memoria import (
     adicionar_evento_historico,
     comparar_com_eventos_passados,
@@ -15,11 +20,11 @@ from memoria import (
     clusterizar_eventos,
     obter_historico_eventos
 )
-from microfone import gravar_audio_microfone, reconhecer_fala
-from resposta import resposta_reativa, planejamento_deliberativo
+from src.services.service_microfone import gravar_audio_microfone, reconhecer_fala
+from src.services.service_resposta import resposta_reativa, planejamento_deliberativo
 from aprendizado import classificar_evento
-from relatorios import gerar_relatorio_llama_local, salvar_relatorio
-from email_utils import enviar_email_com_anexos, enviar_email_relatorio
+from src.services.service_relatorios import gerar_relatorio_llama_local, salvar_relatorio
+from src.services.service_email_utils import enviar_email_com_anexos, enviar_email_relatorio
 
 load_dotenv()
 

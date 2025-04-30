@@ -1,5 +1,5 @@
 from modelos import Evento
-from resposta import gerar_resposta_llama_local
+from src.services.service_resposta import gerar_resposta_llama_local
 
 modelo_aprendizado = {
     "falha_sistema": "Prioridade Alta",
@@ -9,12 +9,13 @@ modelo_aprendizado = {
 
 def classificar_evento(detalhes_evento):
     prompt = f"""
-    Você é uma IA especializada riscos e crises corporativas. Você deve identificar eventos a partir de entradas em áudio, texto, imagens, entre outros.  
-    Com base nos seguintes detalhes, classifique o tipo do evento em uma palavra (ex: Explosão, Sirene, Tiro, Grito, Alarme, Ataque Cibernético etc.).
+    You are an AI specialized in corporate risks and crises. Your task is to identify and classify events based on input data, which may include audio, text, images, or other formats.
 
-    Detalhes do evento: {detalhes_evento}
+    Based on the **event details** below, classify the type of event using **only one word** (e.g., Explosion, Siren, Gunshot, Scream, Alarm, Cyberattack, etc.).
 
-    Resposta apenas com o tipo:
+    **Event Details:** {detalhes_evento}
+
+    **Respond with only the event type, as a single word, in Portuguese.**
     """
     resposta = gerar_resposta_llama_local(prompt)
     return resposta.strip()
