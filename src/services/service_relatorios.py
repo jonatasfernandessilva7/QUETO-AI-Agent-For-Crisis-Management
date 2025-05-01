@@ -1,6 +1,7 @@
 import requests
 import os
 import json
+import re
 
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 from reportlab.platypus import Image as RLImage
@@ -92,19 +93,20 @@ def salvar_relatorio(relatorio: str, timestamp: str, prioridade="Desconhecido"):
 
     story = []
 
-    story.append(Paragraph("📘 <b>Relatório</b>", styles["Title"]))
+    story.append(Paragraph("📘 <b>QUETO - Relatório</b>", styles["Title"]))
     story.append(Spacer(1, 12))
     story.append(Paragraph(f"<b>Prioridade:</b> {prioridade}", estilo_prioridade))
     story.append(Spacer(1, 12))
 
     for linha in relatorio.strip().split("\n"):
         if linha.strip():
-            story.append(Paragraph(linha.strip(), styles["Normal"]))
+            linha_formatada = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", linha.strip())
+            story.append(Paragraph(linha_formatada, styles["Normal"]))
             story.append(Spacer(1, 6))
 
     caminho_img = f"image/matriz_alerta_iso22324.png"
     story.append(Spacer(1, 12))
-    story.append(Paragraph("<b>Matriz de Alerta ISO 22324:</b>", styles["Normal"]))
+    story.append(Paragraph("<b>Código de Cores de Alerta Baseado na ISO 22324:</b>", styles["Normal"]))
     story.append(Spacer(1, 6))
     story.append(RLImage(caminho_img, width=16*cm, height=2*cm))
 
